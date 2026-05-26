@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Impressões - Escola</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Controle de Impressões</h2>
+    
+
+    <datalist id="listaProfessores">
+        <option value="Administração">
+        <option value="Coordenação">
+        <option value="Prof. YARA PALOMA">
+        <option value="Prof. SERGIO EDUARDO">
+        <option value="Prof. LUCIANA MAGDA">
+        <option value="Prof. MARINALVA ALVES">
+        <option value="Prof. MARGARETH CRISTINA">
+        <option value="Prof. HELIA MARA">
+        <option value="Prof. EDOMBERTO FREITAS">
+        <option value="Prof. AMANDA PRISCILLA">
+        <option value="Prof. VALESCA PARREIRAS">
+        <option value="Prof. MARIANA COSTA">
+        <option value="Prof. RAQUEL ENIR">
+        <option value="Prof. LUCIANE MARCOS">
+        <option value="Prof. HELOISA HELENA">
+        <option value="Prof. MARCELLE DE PAULA ">
+
+
+        <option value="Prof. DEBORA CRISTINA">
+        <option value="Prof. SILVIA MARIA ">
+        <option value="Prof. FABIANA CHAFVES">
+        <option value="Prof. PATRICIA NARDUCHI">
+        <option value="Prof. LENITA KATIA">
+        <option value="Prof. GREGORIO GOMES">
+        <option value="Prof. CELIA REGINA">
+        <option value="Prof. SILVANI GONCALVES">
+        <option value="Prof. LISIA MAURA ">
+        <option value="Prof. TATIANA MOURAA">
+        <option value="Prof. NATALIA MOTA">
+        <option value="Prof. DENIA MOREIR">
+        <option value="Prof. RUTENEIA ALVES">
+        <option value="Prof. MARLISE VIEIRA">
+        <option value="Prof. JESSICA GREGORIO">
+        <option value="Prof. MARIA LUCIA">
+        <option value="Prof. OLIVIA MOREIRA">
+        <option value="Prof. CAETANO ALMEIDA">
+        <option value="Prof. GISELLY BATISTA">
+        <option value="Prof. EUNICE APARECIDA">
+        <option value="Prof. ALINE TEODORO">
+
+
+        <option value="Prof. JOSEFA DE QUEIROZ">
+        <option value="Prof. MARIA DAS GRACAS">
+        <option value="Prof. ALEXANDRA MOURAO">
+        <option value="Prof. FABIO EUSTAQUIO">
+        <option value="Prof. ANDRE CHRISPIM">
+        <option value="Prof. LAURA MARQUES">
+        <option value="Prof. JORDAN RAMIRES">
+        <option value="Prof. DAVI DE ALMEIDA">
+        <option value="Prof. RENATA LIMA">
+        <option value="Prof. STELLA FERREIRA">
+        <option value="Prof. FABIANA MARQUES GOMES">
+        <option value="Prof. FABIO EDUARDO ">
+        <option value="Prof. VALÉRIA"></option>
+        
+        
+        <option value="Monitora ANA CAROLINA"></option>
+        <option value="Monitora WANUCIA"></option>
+        <option value="Monitora JHULIAN"></option>
+        <option value="Monitora QUEZIA"></option>
+        <option value="Monitora CELINA"></option>
+
+    </datalist>
+
+    <div class="filter-group">
+        <label>Consultar relatórios por período e professor:</label>
+        <div class="filter-controls">
+            <input type="date" id="dataInicio" onchange="atualizarTela()" title="Data Inicial">
+            <span class="separador-data">até</span>
+            <input type="date" id="dataFim" onchange="atualizarTela()" title="Data Final">
+            
+            <input type="text" id="usuarioFiltro" list="listaProfessores" placeholder="Buscar professor..." oninput="atualizarTela()" title="Filtrar por professor/setor">
+            
+            <button onclick="limparFiltros()" class="btn-secundario">Limpar</button>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="card">
+            <h3 id="tituloDia">Total Hoje</h3>
+            <p id="totalDia">0</p>
+        </div>
+        <div class="card">
+            <h3 id="tituloMes">Total no Mês</h3>
+            <p id="totalMes">0</p>
+        </div>
+    </div>
+
+    <div id="alertaCota" class="info-cota">
+        Cota restante de <span id="nomeCotaTexto"></span> neste mês: <span id="valorCotaTexto">0</span> folhas.
+    </div>
+
+    <div class="form-group form-lancamento">
+        <input type="date" id="dataLancamento" title="Data do lançamento (Deixe vazio para Hoje)">
+        
+        <input type="text" id="nomeUsuario" list="listaProfessores" placeholder="Quem imprimiu? (Busque aqui)" oninput="verificarCota()">
+        
+        <input type="number" id="qtdImpressoes" placeholder="Qtd">
+        <button onclick="registrarImpressao()">Lançar</button>
+    </div>
+
+    <div class="history">
+        <div class="history-header">
+            <h3 id="tituloHistorico">Lançamentos de Hoje</h3>
+            <button onclick="apagarTudo()" class="btn-perigo" title="Apagar todos os registros">⚠️ Apagar Tudo</button>
+        </div>
+        <div id="listaRegistros"></div>
+    </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
